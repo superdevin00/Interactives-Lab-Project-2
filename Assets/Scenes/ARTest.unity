@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13bdcba68a7d7c84d916d3bc40af90de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arObjectToSpawn: {fileID: 7414126791596113512, guid: fe573e7abb8af466791f07600c0785e3,
+  arObjectToSpawn: {fileID: 7414126791596113512, guid: eee616a7884e6b1439d0f4462c531f8e,
     type: 3}
   placementIndicator: {fileID: 476696242}
   aRRaycastManager: {fileID: 1659859601}
