@@ -47,7 +47,8 @@ public class ARInputManager : MonoBehaviour
             Debug.DrawRay(transform.position, end, Color.yellow);
             Debug.Log("Did Hit");
         }
-        else {
+        else
+        {
             //Debug.DrawRay(transform.position, direction * 1000, Color.white);
             Debug.DrawRay(transform.position, end, Color.white);
             Debug.Log("Did not Hit");
