@@ -7,7 +7,7 @@ public class GemSpinner : MonoBehaviour
     [SerializeField] Transform target;
 
     [SerializeField] float spinSpeed = 30f;
-    [SerializeField] float hoverOffset = .5f;
+    [SerializeField] float hoverHeight = .5f;
     [SerializeField] float hoverTime = 2f;
 
     float hoverTimer = 0f;
@@ -26,9 +26,11 @@ public class GemSpinner : MonoBehaviour
 
     void Hover()
     {
-        float sin = Mathf.Sin(hoverTimer / hoverTime);
-        float y = Mathf.Lerp(-hoverOffset, hoverOffset, sin);
+        float sin = Mathf.Sin((hoverTimer / hoverTime) * 2 * Mathf.PI);
+        float y = Mathf.Lerp(-hoverHeight, hoverHeight, (sin + 1) / 2);
 
         target.transform.position = new Vector3(target.position.x, y, target.position.z);
+
+        hoverTimer += Time.deltaTime;
     }
 }

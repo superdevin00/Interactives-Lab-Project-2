@@ -485,7 +485,7 @@ GameObject:
   - component: {fileID: 1558446966}
   - component: {fileID: 1558446965}
   m_Layer: 0
-  m_Name: AR Input Controller
+  m_Name: AR Input Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

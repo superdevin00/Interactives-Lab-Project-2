@@ -14,7 +14,8 @@ public class ARPlacement : MonoBehaviour
     [SerializeField] ARRaycastManager aRRaycastManager;
     private bool placementPoseIsValid = false;
 
-    private void Update() {
+    private void Update()
+    {
         if (spawnedObject == null && placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             ARPlaceObject();
 
@@ -22,28 +23,34 @@ public class ARPlacement : MonoBehaviour
         UpdatePlacementIndicator();
     }
 
-    void UpdatePlacementIndicator() {
-        if (spawnedObject == null && placementPoseIsValid) {
+    void UpdatePlacementIndicator()
+    {
+        if (spawnedObject == null && placementPoseIsValid)
+        {
             placementIndicator.SetActive(true);
             placementIndicator.transform.SetPositionAndRotation(PlacementPose.position, PlacementPose.rotation);
         }
-        else {
+        else
+        {
             placementIndicator.SetActive(false);
         }
     }
 
-    void UpdatePlacementPose() {
+    void UpdatePlacementPose()
+    {
         Vector3 screenCenter = Camera.current.ViewportToScreenPoint(new Vector3(.5f, .5f));
         List<ARRaycastHit> hits = new List<ARRaycastHit>();
         aRRaycastManager.Raycast(screenCenter, hits, TrackableType.Planes);
 
         placementPoseIsValid = hits.Count > 0;
-        if (placementPoseIsValid) {
+        if (placementPoseIsValid)
+        {
             PlacementPose = hits[0].pose;
         }
     }
 
-    void ARPlaceObject() {
+    void ARPlaceObject()
+    {
         spawnedObject = Instantiate(arObjectToSpawn, PlacementPose.position, PlacementPose.rotation);
     }
 }
