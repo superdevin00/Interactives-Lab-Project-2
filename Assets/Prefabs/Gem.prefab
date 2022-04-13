@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2297858341070018378}
   - component: {fileID: 2297858341070018381}
+  - component: {fileID: 5675535911203497374}
   m_Layer: 0
   m_Name: Gem
   m_TagString: Untagged
@@ -44,10 +45,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c0004e29de4abf47a5b5ec8168d6750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 6479964076040272797}
+  target: {fileID: 2297858341070018378}
   spinSpeed: 30
-  hoverHeight: 0.05
-  hoverTime: 2
+  hoverHeight: 0.03
+  hoverTime: 2.5
+--- !u!65 &5675535911203497374
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2297858341070018380}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.2, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6148613632550768237
 GameObject:
   m_ObjectHideFlags: 0
