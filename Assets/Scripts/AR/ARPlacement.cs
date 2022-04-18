@@ -18,12 +18,19 @@ public class ARPlacement : MonoBehaviour
 
     private void Update()
     {
+        if (Camera.current == null)
+                return;
+
         if (spawnedObject == null)
         {
             if (!placementPoseIsValid)
+            {
                 UpdatePlacementPose();
+            }
             else
+            {
                 ARPlaceObject();
+            }
         }
     }
 

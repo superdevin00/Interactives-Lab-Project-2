@@ -9,15 +9,49 @@ public class ARUIManager : MonoBehaviour
 
     [Header("UI References")]
     [SerializeField] Canvas canvas;
-    [SerializeField] GameObject findPlaneInstructionObj;
+    [SerializeField] GameObject enableCameraText;
+    [SerializeField] GameObject lookAtSurfaceText;
+
+    bool cameraExists = false;
 
     private void Start()
     {
-        aRPlacement.OnFindPlacementPose += (pose) => HideInstructions();
+        aRPlacement.OnFindPlacementPose += (pose) => OnPlacementPoseFound();
+
+        cameraExists = false;
+        OnCameraDisabled();
     }
 
-    private void HideInstructions()
+    private void Update()
     {
-        findPlaneInstructionObj.SetActive(false);
+        //Debug.Log(Camera.main == null);
+        if (!cameraExists && Camera.main != null)
+        {
+            cameraExists = true;
+            OnCameraEnabled();
+        }
+        else if (cameraExists && Camera.main == null)
+        {
+            cameraExists = false;
+            OnCameraDisabled();
+        }
+    }
+
+    private void OnCameraEnabled()
+    {
+        enableCameraText.SetActive(false);
+        lookAtSurfaceText.SetActive(true);
+    }
+
+
+    private void OnCameraDisabled()
+    {
+        enableCameraText.SetActive(true);
+        lookAtSurfaceText.SetActive(false);
+    }
+
+    private void OnPlacementPoseFound()
+    {
+        lookAtSurfaceText.SetActive(false);
     }
 }
