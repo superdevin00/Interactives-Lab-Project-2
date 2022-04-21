@@ -4,9 +4,12 @@ using UnityEngine;
 using System;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
+using UnityEngine.SceneManagement;
 
 public class GemMiner : MonoBehaviour
 {
+    static float TIME_TO_EXIT_SCENE = 2f;
+
     [SerializeField] GameObject mineParticleSystemPrefab;
 
     private void OnEnable()
@@ -28,7 +31,21 @@ public class GemMiner : MonoBehaviour
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity, ~0, QueryTriggerInteraction.Collide))
         {
-            Instantiate(mineParticleSystemPrefab, hitInfo.point, Quaternion.identity, transform);
+            OnMine(hitInfo.point);
         }
+    }
+
+    private void OnMine(Vector3 minePos)
+    {
+        Instantiate(mineParticleSystemPrefab, minePos, Quaternion.identity, transform);
+        PlayerManager playerManager = GameObject.FindObjectOfType<PlayerManager>();
+        playerManager.givePlayerGems(1);
+        StartCoroutine(WaitForSceneTransition());
+    }
+
+    private IEnumerator WaitForSceneTransition()
+    {
+        yield return new WaitForSeconds(TIME_TO_EXIT_SCENE);
+        SceneManager.LoadSceneAsync("GPSTest");
     }
 }
