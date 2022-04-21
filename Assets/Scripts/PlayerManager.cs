@@ -15,23 +15,29 @@ public class PlayerManager : MonoBehaviour
     private int gemsDeposited;
 
     [SerializeField] TMP_Text timerText;
+    [SerializeField] TMP_Text gemsText;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        gemsDeposited = 25;
+        gemsOnHand = 12;
         timeLeft = startingTime;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Timer stuffs
         timeLeft -= Time.deltaTime;
         timerText.text = (timeLeft).ToString("0");
         if (timeLeft < 0)
         {
             //Do something useful or Load a new game scene depending on your use-case
         }
+
+        gemsText.text = gemsOnHand.ToString("0");
     }
 
     public float getTimeLeft()
@@ -41,6 +47,32 @@ public class PlayerManager : MonoBehaviour
     public float getScore()
     {
         return score;
+    }
+
+    public int getGemsCollected()
+    {
+        return totalGemsCollected;
+    }
+
+    public int getGemsDeposited()
+    {
+        return gemsDeposited;
+    }
+
+    public void givePlayerGems(int gemsToGive)
+    {
+        gemsOnHand += gemsToGive;
+        totalGemsCollected += gemsToGive;
+    }
+
+    public void depositGems()
+    {
+        gemsDeposited += gemsOnHand;
+        gemsOnHand = 0;
+    }
+    public void useDepositedGems(int gemsToUse)
+    {
+        gemsDeposited -= gemsToUse;
     }
 
     public void addTime(float timeToAdd)
