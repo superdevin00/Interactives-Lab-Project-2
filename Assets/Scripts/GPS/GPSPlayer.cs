@@ -27,6 +27,8 @@ public class GPSPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         if (locationControlled)
         {
             float tempX = gpsloc.latitude / 0.0357f;
