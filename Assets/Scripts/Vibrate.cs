@@ -2,19 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AreaBlocked : MonoBehaviour
+public class Vibrate : MonoBehaviour
 {
-
-    [SerializeField] GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        Handheld.Vibrate();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = player.transform.position;
+        
     }
 }

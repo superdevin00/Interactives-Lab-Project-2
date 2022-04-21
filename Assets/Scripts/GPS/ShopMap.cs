@@ -17,7 +17,7 @@ public class ShopMap : MonoBehaviour
     void Update()
     {
 
-        if (GetComponent<Collider2D>().IsTouching(player.GetComponent<Collider2D>()))
+        if (gameObject.GetComponent<Collider2D>().IsTouching(player.GetComponent<Collider2D>()))
         {
             currentShop.SetActive(true);
         }
