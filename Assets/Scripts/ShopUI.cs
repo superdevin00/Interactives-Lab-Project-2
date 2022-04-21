@@ -8,9 +8,12 @@ public class ShopUI : MonoBehaviour
 {
     private Transform container;
     private Transform shopItemTemplate;
+    private bool retainShop;
+
     public Sprite testSprite;
     PlayerManager player;
     [SerializeField] TMP_Text gemsDeposited;
+    //[SerializeField] Button shopButton;
 
 
     private void Awake()
@@ -24,6 +27,21 @@ public class ShopUI : MonoBehaviour
 
     private void Start()
     {
+        //Object Persistence
+        DontDestroyOnLoad(transform.gameObject);
+
+        //Retain on Load of New Scene
+        if (!retainShop)
+        {
+            retainShop = true;
+            DontDestroyOnLoad(transform.gameObject);
+            Debug.Log("Camera Loaded");
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         CreateItemButton(ItemEnum.item.test, testSprite, "Test", 1, 0);
         CreateItemButton(ItemEnum.item.test, testSprite, "Test2", 17, 1);
         CreateItemButton(ItemEnum.item.test, testSprite, "Test3", 2, 2);

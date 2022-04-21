@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     //Timer Vars
     private float timeLeft;
     private float startingTime = 60;
+    private bool retainManager;
     
     private int score;
     private int totalGemsCollected;
@@ -26,6 +27,21 @@ public class PlayerManager : MonoBehaviour
         gemsDeposited = 25;
         gemsOnHand = 12;
         timeLeft = startingTime;
+
+        //Object Persistence
+        DontDestroyOnLoad(transform.gameObject);
+
+        //Retain on Load of New Scene
+        if (!retainManager)
+        {
+            retainManager = true;
+            DontDestroyOnLoad(transform.gameObject);
+            Debug.Log("Camera Loaded");
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame
