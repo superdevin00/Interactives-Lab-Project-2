@@ -19,6 +19,7 @@ public class ShopUI : MonoBehaviour
         container = transform.Find("Container");
         shopItemTemplate = container.Find("ShopItemTemplate");
         shopItemTemplate.gameObject.SetActive(false);
+        container.gameObject.SetActive(false);
     }
 
     private void Start()
@@ -85,6 +86,24 @@ public class ShopUI : MonoBehaviour
         {
             Debug.Log("not enough gems");
         }
+    }
+
+    public void setShopVisibility(bool isVisible)
+    {
+        container.gameObject.SetActive(isVisible);
+    }
+
+    public void toggleShopVisibility()
+    {
+        if (container.gameObject.activeInHierarchy == true)
+        {
+            container.gameObject.SetActive(false);
+        }
+        else
+        {
+            container.gameObject.SetActive(true);
+        }
+        
     }
 
 }

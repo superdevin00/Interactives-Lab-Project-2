@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class PlayerManager : MonoBehaviour
@@ -16,6 +17,7 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] TMP_Text timerText;
     [SerializeField] TMP_Text gemsText;
+    [SerializeField] Button shopButton;
 
 
     // Start is called before the first frame update
@@ -78,5 +80,10 @@ public class PlayerManager : MonoBehaviour
     public void addTime(float timeToAdd)
     {
         timeLeft += timeToAdd;
+    }
+
+    public void setShopButtonVisibility(bool isVisible)
+    {
+        shopButton.gameObject.SetActive(isVisible);
     }
 }
