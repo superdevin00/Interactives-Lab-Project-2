@@ -18,7 +18,7 @@ public class ShopUI : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.Find("PlayerUI").GetComponent<PlayerManager>();
+        player = PlayerManager.i;
         container = transform.Find("Container");
         shopItemTemplate = container.Find("ShopItemTemplate");
         shopItemTemplate.gameObject.SetActive(false);

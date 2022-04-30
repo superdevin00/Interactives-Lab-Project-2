@@ -9,7 +9,6 @@ public class PlayerManager : MonoBehaviour
     //Timer Vars
     private float timeLeft;
     private float startingTime = 60;
-    private bool retainManager;
     
     private int score;
     private int totalGemsCollected;
@@ -20,28 +19,26 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] TMP_Text gemsText;
     [SerializeField] Button shopButton;
 
+    // Singleton: Reference with "PlayerManager.i"
+    public static PlayerManager i;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        gemsDeposited = 25;
-        gemsOnHand = 12;
-        timeLeft = startingTime;
-
-        //Object Persistence
-        DontDestroyOnLoad(transform.gameObject);
-
-        //Retain on Load of New Scene
-        if (!retainManager)
+        if (i == null)
         {
-            retainManager = true;
-            DontDestroyOnLoad(transform.gameObject);
+            //Retain on Load of New Scene
+            i = this;
+            DontDestroyOnLoad(gameObject);
             Debug.Log("Camera Loaded");
         }
         else
         {
             Destroy(gameObject);
         }
+
+        gemsDeposited = 25;
+        gemsOnHand = 12;
+        timeLeft = startingTime;
     }
 
     // Update is called once per frame

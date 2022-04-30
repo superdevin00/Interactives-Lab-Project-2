@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GemButton : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class GemButton : MonoBehaviour
                 if (Physics2D.OverlapPoint(tapPos) == col)
                 {
                     //GO TO GEM
+                    SceneManager.LoadSceneAsync("ARTest");
                     Destroy(gemMap);
                 }
             }
@@ -36,6 +38,7 @@ public class GemButton : MonoBehaviour
             if (Physics2D.OverlapPoint(tapPos) == col)
             {
                 //GO TO GEM
+                SceneManager.LoadSceneAsync("ARTest");
                 Destroy(gemMap);
             }
         }

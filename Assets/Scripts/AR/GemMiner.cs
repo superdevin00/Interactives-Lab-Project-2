@@ -28,18 +28,21 @@ public class GemMiner : MonoBehaviour
         Vector3 touchPos = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 100f));
         Ray ray = new Ray(cameraPos, touchPos - cameraPos);
 
-        RaycastHit hitInfo;
-        if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity, ~0, QueryTriggerInteraction.Collide))
+        RaycastHit[] hitInfos = Physics.RaycastAll(ray, Mathf.Infinity, ~0, QueryTriggerInteraction.Collide);
+        foreach (RaycastHit hitInfo in hitInfos)
         {
-            OnMine(hitInfo.point);
+            if (hitInfo.collider.tag == "Gem")
+            {
+                OnMine(hitInfo.point);
+                break;
+            }
         }
     }
 
     private void OnMine(Vector3 minePos)
     {
         Instantiate(mineParticleSystemPrefab, minePos, Quaternion.identity, transform);
-        PlayerManager playerManager = GameObject.FindObjectOfType<PlayerManager>();
-        playerManager.givePlayerGems(1);
+        PlayerManager.i.givePlayerGems(1);
         StartCoroutine(WaitForSceneTransition());
     }
 
