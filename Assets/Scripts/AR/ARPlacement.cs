@@ -19,7 +19,7 @@ public class ARPlacement : MonoBehaviour
     private void Update()
     {
         if (Camera.current == null)
-                return;
+            return;
 
         if (spawnedObject == null)
         {

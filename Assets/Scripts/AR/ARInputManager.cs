@@ -12,6 +12,7 @@ public class ARInputManager : MonoBehaviour
         if (i == null)
         {
             i = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
