@@ -7,51 +7,52 @@ using UnityEngine.XR.ARSubsystems;
 
 public class ARPlacement : MonoBehaviour
 {
+    static Vector3 STARTING_GEM_OFFSET_FROM_CAMERA = new Vector3(0f, 0f, 5f);
+
+    [SerializeField] ARRaycastManager aRRaycastManager;
+
     public GameObject arObjectToSpawn;
     private GameObject spawnedObject;
 
-    private Pose placementPose;
-    [SerializeField] ARRaycastManager aRRaycastManager;
-    private bool placementPoseIsValid = false;
+    // AR will snap gem to first object it finds, but nothing after that.
+    private bool hasSnappedToARObject = false;
 
-    public event Action<Pose> OnFindPlacementPose;
+    private void Start()
+    {
+        Vector3 cameraPos = (Camera.current) ? Camera.current.transform.position : new Vector3();
+        Pose startPose = new Pose(cameraPos + STARTING_GEM_OFFSET_FROM_CAMERA, Quaternion.identity);
+        ARPlaceObject(startPose);
+    }
 
     private void Update()
     {
-        if (Camera.current == null)
-            return;
-
-        if (spawnedObject == null)
-        {
-            if (!placementPoseIsValid)
-            {
-                UpdatePlacementPose();
-            }
-            else
-            {
-                ARPlaceObject();
-            }
-        }
+        if (!hasSnappedToARObject)
+            TrySnapToARObject();
     }
 
-    void ARPlaceObject()
+    void ARPlaceObject(Pose pose)
     {
-        spawnedObject = Instantiate(arObjectToSpawn, placementPose.position, placementPose.rotation);
+        spawnedObject = Instantiate(arObjectToSpawn, pose.position, pose.rotation);
     }
 
-    void UpdatePlacementPose()
+    void UpdateGemPos(Pose pose)
     {
-        // Find real-world flat surfaces
+        spawnedObject.transform.position = pose.position;
+        spawnedObject.transform.rotation = pose.rotation;
+    }
+
+    void TrySnapToARObject()
+    {
+        // Find trackable objects
         Vector3 screenCenter = Camera.current.ViewportToScreenPoint(new Vector3(.5f, .5f));
         List<ARRaycastHit> hits = new List<ARRaycastHit>();
-        aRRaycastManager.Raycast(screenCenter, hits, TrackableType.Planes);
+        aRRaycastManager.Raycast(screenCenter, hits, TrackableType.All);
 
-        // Set first flat surface as a valid spawn position
-        placementPoseIsValid = hits.Count > 0;
-        if (placementPoseIsValid)
+        // Set first object surface as a valid position
+        if (hits.Count > 0)
         {
-            placementPose = hits[0].pose;
-            OnFindPlacementPose?.Invoke(placementPose);
+            hasSnappedToARObject = true;
+            UpdateGemPos(hits[0].pose);
         }
     }
 

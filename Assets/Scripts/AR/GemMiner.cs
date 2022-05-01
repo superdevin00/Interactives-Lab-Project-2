@@ -8,9 +8,11 @@ using UnityEngine.SceneManagement;
 
 public class GemMiner : MonoBehaviour
 {
-    static float TIME_TO_EXIT_SCENE = 2f;
+    static float TIME_TO_EXIT_SCENE = 1f;
 
     [SerializeField] GameObject mineParticleSystemPrefab;
+
+    bool hasMined = false;
 
     private void OnEnable()
     {
@@ -24,9 +26,12 @@ public class GemMiner : MonoBehaviour
 
     private void TryMine(Touch touch)
     {
-        Vector3 cameraPos = Camera.main.transform.position;
-        Vector3 touchPos = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 100f));
-        Ray ray = new Ray(cameraPos, touchPos - cameraPos);
+        if (hasMined)
+            return;
+        hasMined = true;
+
+        Vector3 touchPos = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 0f));
+        Ray ray = new Ray(touchPos, Vector3.forward);
 
         RaycastHit[] hitInfos = Physics.RaycastAll(ray, Mathf.Infinity, ~0, QueryTriggerInteraction.Collide);
         foreach (RaycastHit hitInfo in hitInfos)

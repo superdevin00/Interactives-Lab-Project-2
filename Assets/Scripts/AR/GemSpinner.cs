@@ -20,7 +20,7 @@ public class GemSpinner : MonoBehaviour
 
     void Spin()
     {
-        float spinAmount = spinSpeed / Time.deltaTime;
+        float spinAmount = spinSpeed * Time.deltaTime;
         target.Rotate(Vector3.up, spinAmount);
     }
 
