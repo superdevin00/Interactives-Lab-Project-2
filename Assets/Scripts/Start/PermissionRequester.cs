@@ -12,8 +12,8 @@ public class PermissionRequester : MonoBehaviour
         if (Application.platform == RuntimePlatform.Android)
         {
             Permission.RequestUserPermission(Permission.Camera);
-            //Permission.RequestUserPermission(Permission.CoarseLocation);
-            //Permission.RequestUserPermission(Permission.FineLocation);
+            Permission.RequestUserPermission(Permission.CoarseLocation);
+            Permission.RequestUserPermission(Permission.FineLocation);
             finishedRequesting = true;
         }
         else if (Application.platform == RuntimePlatform.WindowsEditor)
