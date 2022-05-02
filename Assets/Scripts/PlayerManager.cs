@@ -24,7 +24,7 @@ public class PlayerManager : MonoBehaviour
 
     void Awake()
     {
-        if (i == null)
+        /*if (i == null)
         {
             //Retain on Load of New Scene
             i = this;
@@ -34,7 +34,7 @@ public class PlayerManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }
+        }*/
 
         gemsDeposited = 25;
         gemsOnHand = 12;
