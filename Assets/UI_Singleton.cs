@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class UI_Singleton : MonoBehaviour
 {
-
     public static UI_Singleton i;
     void Awake()
     {

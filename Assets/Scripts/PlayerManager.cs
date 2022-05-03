@@ -19,23 +19,9 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] TMP_Text gemsText;
     [SerializeField] Button shopButton;
 
-    // Singleton: Reference with "PlayerManager.i"
-    public static PlayerManager i;
 
     void Awake()
     {
-        /*if (i == null)
-        {
-            //Retain on Load of New Scene
-            i = this;
-            DontDestroyOnLoad(gameObject);
-            Debug.Log("Camera Loaded");
-        }
-        else
-        {
-            Destroy(gameObject);
-        }*/
-
         gemsDeposited = 25;
         gemsOnHand = 12;
         timeLeft = startingTime;

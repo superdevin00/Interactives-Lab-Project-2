@@ -11,7 +11,7 @@ public class StartSceneManager : MonoBehaviour
 
     private void Update()
     {
-        if (!hasExitedStartScene && PlayerManager.i != null && permissionRequester.finishedRequesting)
+        if (!hasExitedStartScene && UI_Singleton.i != null && permissionRequester.finishedRequesting)
         {
             SceneManager.LoadSceneAsync("GPSTest");
             hasExitedStartScene = true;
