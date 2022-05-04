@@ -10,11 +10,16 @@ public class GemMap : MonoBehaviour
     private GameObject currentButton;
     public AreaOfPlay aop;
     public GameObject player;
+    private PlayerManager playerManager;
     void Start()
     {
-        currentButton = Instantiate(gemButton, new Vector3(-0.8f, -3f, 0), Quaternion.identity);
-        currentButton.GetComponent<GemButton>().gemMap = gameObject;
-        currentButton.SetActive(false);
+        //currentButton = Instantiate(gemButton, new Vector3(-0.8f, -3f, 0), Quaternion.identity);
+        //currentButton.GetComponent<GemButton>().gemMap = gameObject;
+        //currentButton.SetActive(false);
+        playerManager = GameObject.Find("PlayerUI").GetComponent<PlayerManager>();
+        playerManager.gemMap = gameObject;
+        playerManager.setGemButtonVisibility(false);
+
     }
 
     // Update is called once per frame
@@ -36,11 +41,11 @@ public class GemMap : MonoBehaviour
         */
         if (GetComponent<Collider2D>().IsTouching(player.GetComponent<Collider2D>()))
         {
-            currentButton.SetActive(true);
+            playerManager.setGemButtonVisibility(true);
         }
         else
         {
-            currentButton.SetActive(false);
+            playerManager.setGemButtonVisibility(false);
         }
     }
     /*

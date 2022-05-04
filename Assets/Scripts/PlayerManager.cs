@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -15,9 +16,12 @@ public class PlayerManager : MonoBehaviour
     private int gemsOnHand;
     private int gemsDeposited;
 
+    public GameObject gemMap;
+
     [SerializeField] TMP_Text timerText;
     [SerializeField] TMP_Text gemsText;
     [SerializeField] Button shopButton;
+    [SerializeField] Button gemButton;
 
 
     void Awake()
@@ -84,5 +88,16 @@ public class PlayerManager : MonoBehaviour
     public void setShopButtonVisibility(bool isVisible)
     {
         shopButton.gameObject.SetActive(isVisible);
+    }
+
+    public void setGemButtonVisibility(bool isVisible)
+    {
+        gemButton.gameObject.SetActive(isVisible);
+    }
+
+    public void goToGemScene()
+    {
+        SceneManager.LoadSceneAsync("ARTest");
+        Destroy(gemMap);
     }
 }
