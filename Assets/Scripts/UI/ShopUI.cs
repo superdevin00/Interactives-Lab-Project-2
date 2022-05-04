@@ -48,7 +48,7 @@ public class ShopUI : MonoBehaviour
 
         CreateItemButton(ItemEnum.item.test, testSprite, "Test", 1, 0);
         CreateItemButton(ItemEnum.item.test, testSprite, "Gems Spawn Closer", 17, 1);
-        CreateItemButton(ItemEnum.item.test, testSprite, "Range", 2, 2);
+        CreateItemButton(ItemEnum.item.test, rangeSprite, "Range", 2, 2);
         CreateItemButton(ItemEnum.item.TimeIncrease, timerSprite, "Timer Increase", 10, 3);
     }
 
@@ -97,6 +97,7 @@ public class ShopUI : MonoBehaviour
                     break;
 
                 case ItemEnum.item.DetectRangeIncrease:
+                    player.addRange(0.05f);
                     break;
 
                 case ItemEnum.item.TimeIncrease:

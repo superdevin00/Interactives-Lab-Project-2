@@ -28,6 +28,8 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] GameObject parent;
 
+    private GameObject playerObject;
+
 
     void Awake()
     {
@@ -35,6 +37,11 @@ public class PlayerManager : MonoBehaviour
         gemsOnHand = 12;
         timeLeft = startingTime;
         isTimerActive = false;
+    }
+
+    private void Start()
+    {
+        playerObject = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -109,6 +116,11 @@ public class PlayerManager : MonoBehaviour
     public void addTime(float timeToAdd)
     {
         timeLeft += timeToAdd;
+    }
+
+    public void addRange(float range)
+    {
+        playerObject.GetComponent<CircleCollider2D>().radius += range;
     }
 
     public void setShopButtonVisibility(bool isVisible)
