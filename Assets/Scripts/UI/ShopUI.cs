@@ -11,6 +11,10 @@ public class ShopUI : MonoBehaviour
     private bool retainShop;
 
     public Sprite testSprite;
+    [SerializeField] Sprite timerSprite;
+    [SerializeField] Sprite rangeSprite;
+    [SerializeField] Sprite gemSpawnSprite;
+
     PlayerManager player;
     [SerializeField] TMP_Text gemsDeposited;
     //[SerializeField] Button shopButton;
@@ -45,7 +49,7 @@ public class ShopUI : MonoBehaviour
         CreateItemButton(ItemEnum.item.test, testSprite, "Test", 1, 0);
         CreateItemButton(ItemEnum.item.test, testSprite, "Gems Spawn Closer", 17, 1);
         CreateItemButton(ItemEnum.item.test, testSprite, "Range", 2, 2);
-        CreateItemButton(ItemEnum.item.TimeIncrease, testSprite, "Timer Increase", 10, 3);
+        CreateItemButton(ItemEnum.item.TimeIncrease, timerSprite, "Timer Increase", 10, 3);
     }
 
     private void Update()
