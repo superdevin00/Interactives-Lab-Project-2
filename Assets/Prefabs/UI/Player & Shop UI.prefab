@@ -428,6 +428,11 @@ PrefabInstance:
       propertyPath: gemButton
       value: 
       objectReference: {fileID: 6701139396012904428}
+    - target: {fileID: 7771928497259537028, guid: a8046ed86e8040a449517990f45515a0,
+        type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 5906792920432267802}
     - target: {fileID: 7771928497259537031, guid: a8046ed86e8040a449517990f45515a0,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -10,6 +10,7 @@ public class PlayerManager : MonoBehaviour
     //Timer Vars
     private float timeLeft;
     private float startingTime = 60;
+    private float totalTimePassed;
     
     private int score;
     private int totalGemsCollected;
@@ -24,6 +25,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] TMP_Text gemsText;
     [SerializeField] Button shopButton;
     [SerializeField] Button gemButton;
+
+    [SerializeField] GameObject parent;
 
 
     void Awake()
@@ -41,10 +44,26 @@ public class PlayerManager : MonoBehaviour
         if (isTimerActive)
         {
             timeLeft -= Time.deltaTime;
+            totalTimePassed += Time.deltaTime;
         }
+
         timerText.text = (timeLeft).ToString("0");
-        if (timeLeft < 0)
+
+
+        if (timeLeft <= 0)
         {
+            increaseScore((int)totalTimePassed * 3);
+
+            PlayerPrefs.SetInt("currentScore", score);
+
+            if (PlayerPrefs.GetInt("highScore") < score)
+            {
+                PlayerPrefs.SetInt("highScore", score);
+            }
+
+            SceneManager.LoadScene("Game Over");
+            Destroy(parent);
+
             //Do something useful or Load a new game scene depending on your use-case
         }
 
@@ -78,6 +97,7 @@ public class PlayerManager : MonoBehaviour
 
     public void depositGems()
     {
+        increaseScore(gemsOnHand * gemsOnHand);
         gemsDeposited += gemsOnHand;
         gemsOnHand = 0;
     }
@@ -109,5 +129,10 @@ public class PlayerManager : MonoBehaviour
     public void setTimerActive(bool isActive)
     {
         isTimerActive = isActive;
+    }
+
+    public void increaseScore(int scoreToAdd)
+    {
+        score += scoreToAdd;
     }
 }
