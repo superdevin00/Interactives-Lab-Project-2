@@ -43,8 +43,8 @@ public class ShopUI : MonoBehaviour
         }
 
         CreateItemButton(ItemEnum.item.test, testSprite, "Test", 1, 0);
-        CreateItemButton(ItemEnum.item.test, testSprite, "Test2", 17, 1);
-        CreateItemButton(ItemEnum.item.test, testSprite, "Test3", 2, 2);
+        CreateItemButton(ItemEnum.item.test, testSprite, "Gems Spawn Closer", 17, 1);
+        CreateItemButton(ItemEnum.item.test, testSprite, "Range", 2, 2);
         CreateItemButton(ItemEnum.item.TimeIncrease, testSprite, "Timer Increase", 10, 3);
     }
 
