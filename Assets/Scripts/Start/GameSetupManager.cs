@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartSceneManager : MonoBehaviour
+public class GameSetupManager : MonoBehaviour
 {
-    [SerializeField] PermissionRequester permissionRequester;
-
-    bool hasExitedStartScene = false;
+    bool hasExitedGameSetupScene = false;
 
     private void Start()
     {
@@ -17,10 +15,10 @@ public class StartSceneManager : MonoBehaviour
 
     private void Update()
     {
-        if (!hasExitedStartScene && UI_Singleton.i != null && permissionRequester.finishedRequesting)
+        if (!hasExitedGameSetupScene && UI_Singleton.i != null)
         {
             SceneManager.LoadSceneAsync("GPSTest");
-            hasExitedStartScene = true;
+            hasExitedGameSetupScene = true;
         }
     }
 }
