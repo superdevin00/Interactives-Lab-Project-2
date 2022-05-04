@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class ShopMap : MonoBehaviour
 {
-    [SerializeField] GameObject shopButton;
-    GameObject currentShop;
+    public ShopUI shop;
+    //GameObject currentShop;
     public GameObject player;
     void Start()
     {
-        currentShop = Instantiate(shopButton, new Vector3(1f, -3f, 0), Quaternion.identity);
-        currentShop.SetActive(false);
+        shop = GameObject.Find("Shop UI").GetComponent<ShopUI>();
+        shop.setShopVisibility(false);
+        shop.setButtonVisibility(false);
+
+        //currentShop = Instantiate(shopButton, new Vector3(1f, -3f, 0), Quaternion.identity);
+        //currentShop.SetActive(false);
     }
 
     // Update is called once per frame
@@ -19,11 +23,12 @@ public class ShopMap : MonoBehaviour
 
         if (gameObject.GetComponent<Collider2D>().IsTouching(player.GetComponent<Collider2D>()))
         {
-            currentShop.SetActive(true);
+            shop.setButtonVisibility(true);
         }
         else
         {
-            currentShop.SetActive(false);
+            shop.setButtonVisibility(false);
+            shop.setShopVisibility(false);
         }
     }
 }

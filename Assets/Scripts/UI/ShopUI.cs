@@ -124,4 +124,9 @@ public class ShopUI : MonoBehaviour
         
     }
 
+
+    public void setButtonVisibility(bool isVisible)
+    {
+        player.setShopButtonVisibility(isVisible);
+    }
 }
