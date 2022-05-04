@@ -8,6 +8,8 @@ public class ItemEnum : MonoBehaviour
     {
         test,
         TimeIncrease,
-        DetectRangeIncrease
+        DetectRangeIncrease,
+        SpawnRange,
+        ScoreIncrease
     };
 }
