@@ -17,7 +17,7 @@ public class GameSetupManager : MonoBehaviour
     {
         if (!hasExitedGameSetupScene && UI_Singleton.i != null)
         {
-            SceneManager.LoadSceneAsync("GPSTest");
+            SceneManager.LoadScene("GPSTest");
             hasExitedGameSetupScene = true;
         }
     }
