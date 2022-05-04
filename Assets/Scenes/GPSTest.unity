@@ -1163,6 +1163,11 @@ PrefabInstance:
       propertyPath: gpsloc
       value: 
       objectReference: {fileID: 669338329}
+    - target: {fileID: 81567882309387198, guid: c5c238b8322cfe049a82db60a7678694,
+        type: 3}
+      propertyPath: locationControlled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5c238b8322cfe049a82db60a7678694, type: 3}
 --- !u!1001 &3212882600242913499
