@@ -293,7 +293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5866531017539007035
 RectTransform:
   m_ObjectHideFlags: 0
@@ -395,8 +395,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5906792921740509966}
-        m_MethodName: toggleShopVisibility
+      - m_Target: {fileID: 5906792922145793394}
+        m_MethodName: goToGemScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -418,6 +418,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5906792921740509966}
+    - target: {fileID: 7771928495985943821, guid: a8046ed86e8040a449517990f45515a0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7771928497259537028, guid: a8046ed86e8040a449517990f45515a0,
         type: 3}
       propertyPath: gemButton
