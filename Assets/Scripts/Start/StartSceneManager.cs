@@ -9,6 +9,12 @@ public class StartSceneManager : MonoBehaviour
 
     bool hasExitedStartScene = false;
 
+    private void Start()
+    {
+        PlayerPrefs.SetInt("generator", 0);
+        PlayerPrefs.SetInt("gameStarted", 0);
+    }
+
     private void Update()
     {
         if (!hasExitedStartScene && UI_Singleton.i != null && permissionRequester.finishedRequesting)

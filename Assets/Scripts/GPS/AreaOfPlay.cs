@@ -14,11 +14,29 @@ public class AreaOfPlay : MonoBehaviour
     [SerializeField] GameObject shopMap;
     public bool generator = false;
     public bool gameStarted = false;
+    bool once = true;
 
     // Start is called before the first frame update
     void Start()
     {
+        if(PlayerPrefs.GetInt("generator") == 1)
+        {
+            generator = true;
 
+        }
+        if(PlayerPrefs.GetInt("gameStarted") == 1)
+        {
+            gameStarted = true;
+            Vector3 shopPos;
+            shopPos.x = PlayerPrefs.GetFloat("shopPos.x");
+            shopPos.y = PlayerPrefs.GetFloat("shopPos.y");
+            shopPos.z = PlayerPrefs.GetFloat("shopPos.z");
+            GameObject temp = Instantiate(shopMap, transform.position, Quaternion.identity);
+            temp.GetComponent<ShopMap>().player = player;
+            upArrow.SetActive(false);
+            downArrow.SetActive(false);
+            start.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -27,6 +45,17 @@ public class AreaOfPlay : MonoBehaviour
         if (!gameStarted)
         {
             transform.position = player.transform.position;
+        }
+        else
+        {
+            upArrow.SetActive(false);
+            downArrow.SetActive(false);
+            start.SetActive(false);
+            if (once)
+            {
+                once = false;
+
+            }
         }
 
         Collider2D upArrowCol = upArrow.GetComponent<Collider2D>();
@@ -47,6 +76,9 @@ public class AreaOfPlay : MonoBehaviour
                     start.SetActive(false);
                     generator = true;
                     GameObject temp = Instantiate(shopMap, transform.position, Quaternion.identity);
+                    PlayerPrefs.SetFloat("shopPos.x", transform.position.x);
+                    PlayerPrefs.SetFloat("shopPos.y", transform.position.y);
+                    PlayerPrefs.SetFloat("shopPos.z", transform.position.z);
                     temp.GetComponent<ShopMap>().player = player;
 
                 }
@@ -72,6 +104,9 @@ public class AreaOfPlay : MonoBehaviour
                 start.SetActive(false);
                 generator = true;
                 GameObject temp = Instantiate(shopMap, transform.position, Quaternion.identity);
+                PlayerPrefs.SetFloat("shopPos.x", transform.position.x);
+                PlayerPrefs.SetFloat("shopPos.y", transform.position.y);
+                PlayerPrefs.SetFloat("shopPos.z", transform.position.z);
                 temp.GetComponent<ShopMap>().player = player;
             }
             if (Physics2D.OverlapPoint(tapPos) == upArrowCol)

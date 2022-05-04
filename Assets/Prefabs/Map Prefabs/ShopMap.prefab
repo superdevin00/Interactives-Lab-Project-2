@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5025873066900827852}
   - component: {fileID: 5025873066900827853}
   - component: {fileID: 9084157752609771553}
+  - component: {fileID: 2428192418620526408}
   m_Layer: 0
   m_Name: ShopMap
   m_TagString: Untagged
@@ -98,3 +99,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!114 &2428192418620526408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5025873066900827854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d34a0c17dc039e4c8f268dd0f293f18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopButton: {fileID: 6503965519160036293, guid: bc57f51f9ddece14d9e27bf16b28d6c6,
+    type: 3}
+  player: {fileID: 0}

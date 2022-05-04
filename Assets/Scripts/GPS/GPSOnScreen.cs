@@ -17,6 +17,6 @@ public class GPSOnScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        coordinates.text = "LAT: " + gpsLoc.latitude.ToString() + "\nLON: " + gpsLoc.longitude.ToString();
+        coordinates.text = "LAT: " + gpsLoc.latitude.ToString() + "\nLON: " + gpsLoc.longitude.ToString() + "\n";
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShopMap : MonoBehaviour
 {
     [SerializeField] GameObject shopButton;
-    private GameObject currentShop;
+    GameObject currentShop;
     public GameObject player;
     void Start()
     {

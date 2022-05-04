@@ -14,7 +14,7 @@ public class GPSLocation : MonoBehaviour
     void Start()
     {
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         StartCoroutine(StartLocationService());
     }
 
