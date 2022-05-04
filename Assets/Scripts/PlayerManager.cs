@@ -33,8 +33,8 @@ public class PlayerManager : MonoBehaviour
 
     void Awake()
     {
-        gemsDeposited = 25;
-        gemsOnHand = 12;
+        gemsDeposited = 0;
+        gemsOnHand = 0;
         timeLeft = startingTime;
         isTimerActive = false;
     }
