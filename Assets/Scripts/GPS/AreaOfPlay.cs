@@ -15,11 +15,14 @@ public class AreaOfPlay : MonoBehaviour
     public bool generator = false;
     public bool gameStarted = false;
     bool once = true;
+    private PlayerManager playerManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(PlayerPrefs.GetInt("generator") == 1)
+        playerManager = GameObject.Find("PlayerUI").GetComponent<PlayerManager>();
+
+        if (PlayerPrefs.GetInt("generator") == 1)
         {
             generator = true;
 
@@ -53,6 +56,7 @@ public class AreaOfPlay : MonoBehaviour
             start.SetActive(false);
             if (once)
             {
+                playerManager.setTimerActive(true);
                 once = false;
 
             }

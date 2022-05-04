@@ -16,6 +16,8 @@ public class PlayerManager : MonoBehaviour
     private int gemsOnHand;
     private int gemsDeposited;
 
+    private bool isTimerActive;
+
     public GameObject gemMap;
 
     [SerializeField] TMP_Text timerText;
@@ -29,13 +31,17 @@ public class PlayerManager : MonoBehaviour
         gemsDeposited = 25;
         gemsOnHand = 12;
         timeLeft = startingTime;
+        isTimerActive = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         //Timer stuffs
-        timeLeft -= Time.deltaTime;
+        if (isTimerActive)
+        {
+            timeLeft -= Time.deltaTime;
+        }
         timerText.text = (timeLeft).ToString("0");
         if (timeLeft < 0)
         {
@@ -99,5 +105,9 @@ public class PlayerManager : MonoBehaviour
     {
         SceneManager.LoadSceneAsync("ARTest");
         Destroy(gemMap);
+    }
+    public void setTimerActive(bool isActive)
+    {
+        isTimerActive = isActive;
     }
 }
