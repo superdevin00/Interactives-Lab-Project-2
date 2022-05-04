@@ -71,6 +71,8 @@ public class AreaOfPlay : MonoBehaviour
                 if (Physics2D.OverlapPoint(tapPos) == startCol)
                 {
                     gameStarted = true;
+                    PlayerPrefs.SetInt("gameStarted", 1);
+                    PlayerPrefs.SetInt("generator", 1);
                     upArrow.SetActive(false);
                     downArrow.SetActive(false);
                     start.SetActive(false);
@@ -99,6 +101,8 @@ public class AreaOfPlay : MonoBehaviour
             if (Physics2D.OverlapPoint(tapPos) == startCol)
             {
                 gameStarted = true;
+                PlayerPrefs.SetInt("gameStarted", 1);
+                PlayerPrefs.SetInt("generator", 1);
                 upArrow.SetActive(false);
                 downArrow.SetActive(false);
                 start.SetActive(false);

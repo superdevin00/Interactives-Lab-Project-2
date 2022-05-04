@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ARTest.unity
     guid: bb0acd90a75757748966cc7fda53ff19
+  - enabled: 1
+    path: Assets/Scenes/JumpBackToGPSTest.unity
+    guid: ecf0b079ec179c144bfbae49c1130081
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 744b813df90924c169af73489b8325de,
       type: 2}
