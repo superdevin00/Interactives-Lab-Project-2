@@ -9,6 +9,7 @@ public class AreaOfPlay : MonoBehaviour
     [SerializeField] GameObject downArrow;
     [SerializeField] GameObject start;
     [SerializeField] GameObject player;
+    [SerializeField] GameObject playerDetection;
     [SerializeField] Collider2D areaBlocked;
     [SerializeField] GameObject gemMap;
     [SerializeField] GameObject shopMap;
@@ -38,7 +39,7 @@ public class AreaOfPlay : MonoBehaviour
             GameObject temp = Instantiate(shopMap, shopPos, Quaternion.identity);
             transform.position = shopPos;
             transform.localScale = new Vector3(PlayerPrefs.GetFloat("areaOfPlayRadius"), PlayerPrefs.GetFloat("areaOfPlayRadius"), 0f);
-            temp.GetComponent<ShopMap>().player = player;
+            temp.GetComponent<ShopMap>().player = playerDetection;
             upArrow.SetActive(false);
             downArrow.SetActive(false);
             start.SetActive(false);
@@ -89,7 +90,7 @@ public class AreaOfPlay : MonoBehaviour
                     PlayerPrefs.SetFloat("shopPos.y", transform.position.y);
                     PlayerPrefs.SetFloat("shopPos.z", transform.position.z);
                     PlayerPrefs.SetFloat("areaOfPlayRadius", transform.localScale.x);
-                    temp.GetComponent<ShopMap>().player = player;
+                    temp.GetComponent<ShopMap>().player = playerDetection;
 
                 }
                 if (Physics2D.OverlapPoint(tapPos) == upArrowCol)
@@ -120,7 +121,7 @@ public class AreaOfPlay : MonoBehaviour
                 PlayerPrefs.SetFloat("shopPos.y", transform.position.y);
                 PlayerPrefs.SetFloat("shopPos.z", transform.position.z);
                 PlayerPrefs.SetFloat("areaOfPlayRadius", transform.localScale.x);
-                temp.GetComponent<ShopMap>().player = player;
+                temp.GetComponent<ShopMap>().player = playerDetection;
             }
             if (Physics2D.OverlapPoint(tapPos) == upArrowCol)
             {
@@ -142,7 +143,7 @@ public class AreaOfPlay : MonoBehaviour
             {
                 GameObject gem = Instantiate(gemMap, gemLoc, Quaternion.identity);
                 gem.GetComponent<GemMap>().aop = GetComponent<AreaOfPlay>();
-                gem.GetComponent<GemMap>().player = player;
+                gem.GetComponent<GemMap>().player = playerDetection;
                 generator = false;
             }
         }

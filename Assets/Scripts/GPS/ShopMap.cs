@@ -13,8 +13,6 @@ public class ShopMap : MonoBehaviour
         shop.setShopVisibility(false);
         shop.setButtonVisibility(false);
 
-        //currentShop = Instantiate(shopButton, new Vector3(1f, -3f, 0), Quaternion.identity);
-        //currentShop.SetActive(false);
     }
 
     // Update is called once per frame

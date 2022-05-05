@@ -29,6 +29,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] GameObject parent;
 
     private GameObject playerObject;
+    private GameObject areaBlocked;
 
 
     void Awake()
@@ -41,7 +42,15 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
-        playerObject = GameObject.Find("Player");
+        SceneManager.sceneLoaded += (scene, loadSceneMode) => FindPlayer();
+    }
+
+    private void FindPlayer()
+    {
+        playerObject = GameObject.Find("DetectRadius");
+        areaBlocked = GameObject.Find("AreaBlocked");
+        //if (playerObject != null && areaBlocked != null)
+        //    SceneManager.sceneLoaded -= (scene, loadSceneMode) => FindPlayer();
     }
 
     // Update is called once per frame
@@ -105,7 +114,7 @@ public class PlayerManager : MonoBehaviour
     public void depositGems()
     {
         increaseScore(gemsOnHand * gemsOnHand);
-        gemsDeposited += gemsOnHand;
+        gemsDeposited += gemsOnHand * 5;
         gemsOnHand = 0;
     }
     public void useDepositedGems(int gemsToUse)
@@ -120,7 +129,13 @@ public class PlayerManager : MonoBehaviour
 
     public void addRange(float range)
     {
-        playerObject.GetComponent<CircleCollider2D>().radius += range;
+        Vector3 newScale = new Vector3(playerObject.transform.localScale.x + range, playerObject.transform.localScale.y + range, playerObject.transform.localScale.z + range);
+        playerObject.transform.localScale = newScale;
+    }
+
+    public void decreaseGemSpawnRadius(float range)
+    {
+        areaBlocked.GetComponent<CircleCollider2D>().radius *= range;
     }
 
     public void setShopButtonVisibility(bool isVisible)

@@ -47,10 +47,10 @@ public class ShopUI : MonoBehaviour
             Destroy(gameObject);
         }
 
-        CreateItemButton(ItemEnum.item.ScoreIncrease, scoreSprite, "Score + 100", 1, 0);
-        CreateItemButton(ItemEnum.item.SpawnRange, gemSpawnSprite, "Gems Spawn Closer", 17, 1);
+        CreateItemButton(ItemEnum.item.ScoreIncrease, scoreSprite, "Score + 100", 2, 0);
+        CreateItemButton(ItemEnum.item.SpawnRange, gemSpawnSprite, "Gems Spawn Closer", 2, 1);
         CreateItemButton(ItemEnum.item.DetectRangeIncrease, rangeSprite, "Range", 2, 2);
-        CreateItemButton(ItemEnum.item.TimeIncrease, timerSprite, "Timer Increase", 10, 3);
+        CreateItemButton(ItemEnum.item.TimeIncrease, timerSprite, "Timer Increase", 2, 3);
     }
 
     private void Update()
@@ -76,11 +76,11 @@ public class ShopUI : MonoBehaviour
 
         shopItemRectTransform.Find("Item Icon").GetComponent<Image>().sprite = itemSprite;
 
-        shopItemTransform.GetComponentInChildren<Button>().onClick.AddListener(delegate { BuyItem(itemType,itemCost); } );
+        shopItemTransform.GetComponentInChildren<Button>().onClick.AddListener(delegate { BuyItem(itemType,itemCost,shopItemTransform.gameObject); } );
 
     }
 
-    private void BuyItem(ItemEnum.item item, int cost)
+    private void BuyItem(ItemEnum.item item, int cost, GameObject button)
     {
         
         int playerMoney = player.getGemsDeposited();
@@ -98,18 +98,27 @@ public class ShopUI : MonoBehaviour
                     break;
 
                 case ItemEnum.item.DetectRangeIncrease:
-                    player.addRange(0.05f);
+                    player.addRange(0.02f);
+                    Destroy(button);
+                    CreateItemButton(ItemEnum.item.DetectRangeIncrease, rangeSprite, "Range", cost * 2, 2);
                     break;
 
                 case ItemEnum.item.TimeIncrease:
                     player.addTime(30f);
+                    Destroy(button);
+                    CreateItemButton(ItemEnum.item.TimeIncrease, timerSprite, "Timer Increase", cost * 2, 3);
                     break;
 
                 case ItemEnum.item.ScoreIncrease:
                     player.increaseScore(100);
+                    Destroy(button);
+                    CreateItemButton(ItemEnum.item.ScoreIncrease, scoreSprite, "Score + 100", cost * 2, 0);
                     break;
 
                 case ItemEnum.item.SpawnRange:
+                    player.decreaseGemSpawnRadius(2.0f / 3.0f);
+                    Destroy(button);
+                    CreateItemButton(ItemEnum.item.SpawnRange, gemSpawnSprite, "Gems Spawn Closer", cost * 2, 1);
                     break;
             }
         }

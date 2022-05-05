@@ -28,6 +28,7 @@ public class GemButton : MonoBehaviour
                 {
                     //GO TO GEM
                     SceneManager.LoadSceneAsync("ARTest");
+                    //SceneManager.LoadScene("JumpBackToGPSTest");
                     Destroy(gemMap);
                 }
             }
@@ -39,6 +40,7 @@ public class GemButton : MonoBehaviour
             {
                 //GO TO GEM
                 SceneManager.LoadSceneAsync("ARTest");
+                //SceneManager.LoadScene("JumpBackToGPSTest");
                 Destroy(gemMap);
             }
         }
