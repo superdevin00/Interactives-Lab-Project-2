@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 244228667}
   - component: {fileID: 244228666}
   - component: {fileID: 244228665}
+  - component: {fileID: 244228668}
   m_Layer: 8
   m_Name: ButtonStart
   m_TagString: Untagged
@@ -230,6 +231,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &244228668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244228664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da95c4bb265c86f49a6a68492bff38e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spr: {fileID: 244228666}
 --- !u!1 &283355953 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 81567882309387197, guid: c5c238b8322cfe049a82db60a7678694,
@@ -351,6 +365,7 @@ GameObject:
   - component: {fileID: 600819786}
   - component: {fileID: 600819785}
   - component: {fileID: 600819787}
+  - component: {fileID: 600819788}
   m_Layer: 8
   m_Name: ButtonUp
   m_TagString: Untagged
@@ -448,6 +463,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10, y: 10}
   m_EdgeRadius: 0
+--- !u!114 &600819788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600819784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da95c4bb265c86f49a6a68492bff38e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spr: {fileID: 600819785}
 --- !u!114 &669338329 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3212882600761125378, guid: a37161f6c1b16d541bbf1de3dd52e806,
@@ -471,6 +499,7 @@ GameObject:
   - component: {fileID: 1037044026}
   - component: {fileID: 1037044025}
   - component: {fileID: 1037044027}
+  - component: {fileID: 1037044028}
   m_Layer: 8
   m_Name: ButtonDown
   m_TagString: Untagged
@@ -568,6 +597,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10, y: 10}
   m_EdgeRadius: 0
+--- !u!114 &1037044028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037044024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da95c4bb265c86f49a6a68492bff38e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spr: {fileID: 1037044025}
 --- !u!1001 &1174927754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1002,6 +1044,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2136157154}
   - component: {fileID: 2136157155}
+  - component: {fileID: 2136157156}
   m_Layer: 0
   m_Name: CheckMark
   m_TagString: Untagged
@@ -1073,6 +1116,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2136157156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136157153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da95c4bb265c86f49a6a68492bff38e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spr: {fileID: 2136157155}
 --- !u!1001 &81567882588350604
 PrefabInstance:
   m_ObjectHideFlags: 0
