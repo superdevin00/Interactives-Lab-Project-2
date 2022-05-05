@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
-public class FadeIn : MonoBehaviour
+public class FadeInText : MonoBehaviour
 {
 
-    [SerializeField] SpriteRenderer spr;
+   // [SerializeField]  tx;
     [SerializeField] float startingVal;
     [SerializeField] float multiplier;
     Color col;
@@ -13,7 +15,8 @@ public class FadeIn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        col = spr.color;
+      //  tx = 
+      //  col = tx.color;
         col.a = startingVal;
     }
 
@@ -21,6 +24,7 @@ public class FadeIn : MonoBehaviour
     void Update()
     {
         col.a += Time.deltaTime * multiplier;
-        spr.color = col;
+     //   tx.color = col;
+
     }
 }
