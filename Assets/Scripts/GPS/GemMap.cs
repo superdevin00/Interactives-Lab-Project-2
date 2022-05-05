@@ -11,6 +11,7 @@ public class GemMap : MonoBehaviour
     public AreaOfPlay aop;
     public GameObject player;
     private PlayerManager playerManager;
+    bool vib = true;
     void Start()
     {
         //currentButton = Instantiate(gemButton, new Vector3(-0.8f, -3f, 0), Quaternion.identity);
@@ -42,10 +43,16 @@ public class GemMap : MonoBehaviour
         if (GetComponent<Collider2D>().IsTouching(player.GetComponent<Collider2D>()))
         {
             playerManager.setGemButtonVisibility(true);
+            if (vib)
+            {
+                Handheld.Vibrate();
+                vib = false;
+            }
         }
         else
         {
             playerManager.setGemButtonVisibility(false);
+            vib = true;
         }
     }
     /*
