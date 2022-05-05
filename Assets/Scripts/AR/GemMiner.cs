@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class GemMiner : MonoBehaviour
 {
+    public AudioClip gemSound;
     static float TIME_TO_EXIT_SCENE = 1f;
 
     [SerializeField] GameObject mineParticleSystemPrefab;
@@ -47,6 +48,7 @@ public class GemMiner : MonoBehaviour
     private void OnMine(Vector3 minePos)
     {
         Handheld.Vibrate();
+        AudioSource.PlayClipAtPoint(gemSound, Vector3.zero, 5);
         Instantiate(mineParticleSystemPrefab, minePos, Quaternion.identity, transform);
         GameObject.Find("PlayerUI").GetComponent<PlayerManager>().givePlayerGems(1);
         StartCoroutine(WaitForSceneTransition());

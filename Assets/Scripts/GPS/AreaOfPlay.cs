@@ -5,6 +5,13 @@ using UnityEngine;
 public class AreaOfPlay : MonoBehaviour
 {
 
+    [SerializeField] AudioClip tapHigh;
+    [SerializeField] AudioClip tapLow;
+    [SerializeField] AudioClip tapMid;
+    private Vector3 clipPoint = new Vector3(0, 1, -10);
+    private float volume = 3;
+
+    [Header("Gameplay Setup")]
     [SerializeField] GameObject upArrow;
     [SerializeField] GameObject downArrow;
     [SerializeField] GameObject start;
@@ -78,6 +85,7 @@ public class AreaOfPlay : MonoBehaviour
                 //transform.position = new Vector3(tapPos.x, tapPos.y, 0);
                 if (Physics2D.OverlapPoint(tapPos) == startCol)
                 {
+                    AudioSource.PlayClipAtPoint(tapMid, clipPoint, volume);
                     gameStarted = true;
                     PlayerPrefs.SetInt("gameStarted", 1);
                     PlayerPrefs.SetInt("generator", 1);
@@ -96,10 +104,12 @@ public class AreaOfPlay : MonoBehaviour
                 if (Physics2D.OverlapPoint(tapPos) == upArrowCol)
                 {
                     transform.localScale = transform.localScale + new Vector3(0.02f, 0.02f, 0f);
+                    AudioSource.PlayClipAtPoint(tapHigh, clipPoint, volume);
                 }
                 if (Physics2D.OverlapPoint(tapPos) == downArrowCol)
                 {
                     transform.localScale = transform.localScale - new Vector3(0.02f, 0.02f, 0f);
+                    AudioSource.PlayClipAtPoint(tapLow, clipPoint, volume);
                 }
             }
         }
@@ -109,6 +119,7 @@ public class AreaOfPlay : MonoBehaviour
             //transform.position = new Vector3(tapPos.x, tapPos.y, 0);
             if (Physics2D.OverlapPoint(tapPos) == startCol)
             {
+                AudioSource.PlayClipAtPoint(tapMid, clipPoint, volume);
                 gameStarted = true;
                 PlayerPrefs.SetInt("gameStarted", 1);
                 PlayerPrefs.SetInt("generator", 1);
@@ -125,10 +136,12 @@ public class AreaOfPlay : MonoBehaviour
             }
             if (Physics2D.OverlapPoint(tapPos) == upArrowCol)
             {
+                AudioSource.PlayClipAtPoint(tapHigh, clipPoint, volume);
                 transform.localScale = transform.localScale + new Vector3(0.02f, 0.02f, 0f);
             }
             if (Physics2D.OverlapPoint(tapPos) == downArrowCol)
             {
+                AudioSource.PlayClipAtPoint(tapLow, clipPoint, volume);
                 transform.localScale = transform.localScale - new Vector3(0.02f, 0.02f, 0f);
             }
         }

@@ -479,6 +479,11 @@ PrefabInstance:
       propertyPath: parent
       value: 
       objectReference: {fileID: 5906792920432267802}
+    - target: {fileID: 7771928497259537028, guid: a8046ed86e8040a449517990f45515a0,
+        type: 3}
+      propertyPath: tapSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 41ed5462db36948478fe82af5f391bfc, type: 3}
     - target: {fileID: 7771928497259537031, guid: a8046ed86e8040a449517990f45515a0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -909,6 +914,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 5310eb65f23141b4396e1bf3406c59b8,
         type: 3}
+    - target: {fileID: 3755546751585361242, guid: 53abc92aa680df0479c118578951ab61,
+        type: 3}
+      propertyPath: buySound
+      value: 
+      objectReference: {fileID: 8300000, guid: ec3b9379c8a1e50479a833b0c3b719ee, type: 3}
+    - target: {fileID: 3755546751585361242, guid: 53abc92aa680df0479c118578951ab61,
+        type: 3}
+      propertyPath: tapSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 41ed5462db36948478fe82af5f391bfc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53abc92aa680df0479c118578951ab61, type: 3}
 --- !u!224 &5906792920300513819 stripped

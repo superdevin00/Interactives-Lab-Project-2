@@ -1481,6 +1481,21 @@ PrefabInstance:
       propertyPath: playerDetection
       value: 
       objectReference: {fileID: 81567882588350605}
+    - target: {fileID: 5141468855744316224, guid: ba789d111baa64c4eb28628b99bff4f7,
+        type: 3}
+      propertyPath: tapMid
+      value: 
+      objectReference: {fileID: 8300000, guid: 41ed5462db36948478fe82af5f391bfc, type: 3}
+    - target: {fileID: 5141468855744316224, guid: ba789d111baa64c4eb28628b99bff4f7,
+        type: 3}
+      propertyPath: tapHigh
+      value: 
+      objectReference: {fileID: 8300000, guid: 85015e5fdf95fbf4d89c75c4ad4a6a5e, type: 3}
+    - target: {fileID: 5141468855744316224, guid: ba789d111baa64c4eb28628b99bff4f7,
+        type: 3}
+      propertyPath: tapLow
+      value: 
+      objectReference: {fileID: 8300000, guid: eed6b090b3d05204d845a295aba0a017, type: 3}
     - target: {fileID: 5141468855744316225, guid: ba789d111baa64c4eb28628b99bff4f7,
         type: 3}
       propertyPath: m_IsTrigger

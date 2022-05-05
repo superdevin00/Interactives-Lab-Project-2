@@ -10,6 +10,11 @@ public class ShopUI : MonoBehaviour
     private Transform shopItemTemplate;
     private bool retainShop;
 
+   public AudioClip tapSound;
+    public AudioClip buySound;
+    private Vector3 clipPoint = new Vector3(0, 1, -10);
+    private float volume = 3.0f;
+
     //public Sprite testSprite;
     [SerializeField] Sprite timerSprite;
     [SerializeField] Sprite rangeSprite;
@@ -90,6 +95,9 @@ public class ShopUI : MonoBehaviour
             //Remove item cost from player bank
             player.useDepositedGems(cost);
 
+            //Buy SFX
+            AudioSource.PlayClipAtPoint(buySound, clipPoint, volume);
+
             //Do thing depending on item type
             switch (item)
             {
@@ -135,6 +143,7 @@ public class ShopUI : MonoBehaviour
 
     public void toggleShopVisibility()
     {
+        AudioSource.PlayClipAtPoint(tapSound, clipPoint, volume);
         if (container.gameObject.activeInHierarchy == true)
         {
             container.gameObject.SetActive(false);

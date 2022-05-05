@@ -19,6 +19,10 @@ public class PlayerManager : MonoBehaviour
 
     private bool isTimerActive;
 
+    public AudioClip tapSound;
+    private Vector3 clipPoint = new Vector3(0, 1, -10);
+    private float volume = 3;
+
     public GameObject gemMap;
 
     [SerializeField] TMP_Text timerText;
@@ -113,6 +117,7 @@ public class PlayerManager : MonoBehaviour
 
     public void depositGems()
     {
+        AudioSource.PlayClipAtPoint(tapSound, clipPoint, volume);
         increaseScore(gemsOnHand * gemsOnHand);
         gemsDeposited += gemsOnHand * 5;
         gemsOnHand = 0;
