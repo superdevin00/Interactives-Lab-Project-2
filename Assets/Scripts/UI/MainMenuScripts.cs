@@ -6,6 +6,7 @@ using TMPro;
 
 public class MainMenuScripts : MonoBehaviour
 {
+    public AudioClip tapSound;
     [SerializeField] TMP_Text highScoreText;
     private void Start()
     {
@@ -14,6 +15,7 @@ public class MainMenuScripts : MonoBehaviour
 
     public void LoadGameSetupScene()
     {
+        AudioSource.PlayClipAtPoint(tapSound,new Vector3(0,1,-10),3.0f);
         SceneManager.LoadScene("GameSetupScene");
     }
 }
