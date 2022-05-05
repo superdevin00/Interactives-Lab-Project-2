@@ -15,6 +15,7 @@ public class AreaOfPlay : MonoBehaviour
     public bool generator = false;
     public bool gameStarted = false;
     bool once = true;
+    bool hasRePlaced = false;
     private PlayerManager playerManager;
 
     // Start is called before the first frame update
@@ -34,7 +35,9 @@ public class AreaOfPlay : MonoBehaviour
             shopPos.x = PlayerPrefs.GetFloat("shopPos.x");
             shopPos.y = PlayerPrefs.GetFloat("shopPos.y");
             shopPos.z = PlayerPrefs.GetFloat("shopPos.z");
-            GameObject temp = Instantiate(shopMap, transform.position, Quaternion.identity);
+            GameObject temp = Instantiate(shopMap, shopPos, Quaternion.identity);
+            transform.position = shopPos;
+            transform.localScale = new Vector3(PlayerPrefs.GetFloat("areaOfPlayRadius"), PlayerPrefs.GetFloat("areaOfPlayRadius"), 0f);
             temp.GetComponent<ShopMap>().player = player;
             upArrow.SetActive(false);
             downArrow.SetActive(false);
@@ -85,6 +88,7 @@ public class AreaOfPlay : MonoBehaviour
                     PlayerPrefs.SetFloat("shopPos.x", transform.position.x);
                     PlayerPrefs.SetFloat("shopPos.y", transform.position.y);
                     PlayerPrefs.SetFloat("shopPos.z", transform.position.z);
+                    PlayerPrefs.SetFloat("areaOfPlayRadius", transform.localScale.x);
                     temp.GetComponent<ShopMap>().player = player;
 
                 }
@@ -115,6 +119,7 @@ public class AreaOfPlay : MonoBehaviour
                 PlayerPrefs.SetFloat("shopPos.x", transform.position.x);
                 PlayerPrefs.SetFloat("shopPos.y", transform.position.y);
                 PlayerPrefs.SetFloat("shopPos.z", transform.position.z);
+                PlayerPrefs.SetFloat("areaOfPlayRadius", transform.localScale.x);
                 temp.GetComponent<ShopMap>().player = player;
             }
             if (Physics2D.OverlapPoint(tapPos) == upArrowCol)

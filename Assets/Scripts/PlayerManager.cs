@@ -9,7 +9,7 @@ public class PlayerManager : MonoBehaviour
 {
     //Timer Vars
     private float timeLeft;
-    private float startingTime = 60;
+    private float startingTime = 300;
     private float totalTimePassed;
     
     private int score;

@@ -12,6 +12,8 @@ public class GPSPlayer : MonoBehaviour
     private float mapVertLength;
     private float mapHorzMin;
     private float mapVertMin;
+    public float tempX;
+    public float tempY;
 
     // Start is called before the first frame update
     void Start()
@@ -31,8 +33,8 @@ public class GPSPlayer : MonoBehaviour
 
         if (locationControlled)
         {
-            float tempX = gpsloc.latitude / 0.0357f;
-            float tempY = gpsloc.longitude / 0.0176f;
+            tempX = (gpsloc.longitude + 96.7679f) / 0.0357f;
+            tempY = (gpsloc.latitude - 32.9774f) / 0.0176f;
             transform.position = new Vector3(mapHorzMin + (tempX * mapHorzLength), mapVertMin + (tempY * mapVertLength), 5);
         }
         else

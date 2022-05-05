@@ -47,9 +47,13 @@ public class GPSLocation : MonoBehaviour
             yield break;
         }
 
-        latitude = Input.location.lastData.latitude;
-        longitude = Input.location.lastData.longitude;
+        while (true)
+        {
+            latitude = Input.location.lastData.latitude;
+            longitude = Input.location.lastData.longitude;
+            yield return null;
+        } 
 
-        yield break;
+        //yield break;
     }
 }

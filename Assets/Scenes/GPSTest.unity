@@ -236,6 +236,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 81567882588350604}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &283355955 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 81567882309387198, guid: c5c238b8322cfe049a82db60a7678694,
+    type: 3}
+  m_PrefabInstance: {fileID: 81567882588350604}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283355953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4935675828632dc42b30da91ef99040b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &283355958
 Rigidbody2D:
   serializedVersion: 4
@@ -686,8 +698,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: -1500}
-  m_SizeDelta: {x: 1500, y: 600}
+  m_AnchoredPosition: {x: 186, y: -2002}
+  m_SizeDelta: {x: 1556.4878, y: 1701.998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1229282846
 MonoBehaviour:
@@ -745,6 +757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gpsLoc: {fileID: 669338329}
+  gpsPlayer: {fileID: 283355955}
   coordinates: {fileID: 1229282846}
 --- !u!1 &1454563724
 GameObject:
@@ -1147,6 +1160,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 81567882309387193, guid: c5c238b8322cfe049a82db60a7678694,
+        type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 81567882309387193, guid: c5c238b8322cfe049a82db60a7678694,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 81567882309387197, guid: c5c238b8322cfe049a82db60a7678694,
         type: 3}
