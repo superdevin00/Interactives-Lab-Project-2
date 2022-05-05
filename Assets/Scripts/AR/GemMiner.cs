@@ -46,6 +46,7 @@ public class GemMiner : MonoBehaviour
 
     private void OnMine(Vector3 minePos)
     {
+        Handheld.Vibrate();
         Instantiate(mineParticleSystemPrefab, minePos, Quaternion.identity, transform);
         GameObject.Find("PlayerUI").GetComponent<PlayerManager>().givePlayerGems(1);
         StartCoroutine(WaitForSceneTransition());
