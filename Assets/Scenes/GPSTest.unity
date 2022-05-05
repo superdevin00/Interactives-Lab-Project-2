@@ -244,6 +244,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spr: {fileID: 244228666}
+  startingVal: 0
+  multiplier: 1
 --- !u!1 &283355953 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 81567882309387197, guid: c5c238b8322cfe049a82db60a7678694,
@@ -476,6 +478,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spr: {fileID: 600819785}
+  startingVal: 0
+  multiplier: 1
 --- !u!114 &669338329 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3212882600761125378, guid: a37161f6c1b16d541bbf1de3dd52e806,
@@ -610,6 +614,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spr: {fileID: 1037044025}
+  startingVal: 0
+  multiplier: 1
 --- !u!1001 &1174927754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1129,6 +1135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spr: {fileID: 2136157155}
+  startingVal: 0
+  multiplier: 1
 --- !u!1001 &81567882588350604
 PrefabInstance:
   m_ObjectHideFlags: 0
